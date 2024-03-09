@@ -14,7 +14,7 @@ services:
     networks:
       - fastdfs-net
     volumes:   
-      - /var/fdfs/tracker:/var/fdfs    
+      - ~/var/fdfs/tracker:/var/fdfs    
     ports:
       - 22122:22122
   storage0:
@@ -27,7 +27,7 @@ services:
     environment:
       - TRACKER_SERVER=tracker:22122
     volumes: 
-      - /var/fdfs/storage0:/var/fdfs
+      - ~/var/fdfs/storage0:/var/fdfs
     ports:
       - 28080:8080
     depends_on:
@@ -42,7 +42,7 @@ services:
     environment:
       - TRACKER_SERVER=tracker:22122
     volumes: 
-      - /var/fdfs/storage1:/var/fdfs
+      - ~/var/fdfs/storage1:/var/fdfs
     ports:
       - 28081:8080
     depends_on:

@@ -50,7 +50,7 @@ RUN git clone -b $FASTDFS_VERSION https://github.com/happyfish100/fastdfs.git fa
   && ./make.sh install \
   && rm -rf ${FASTDFS_PATH}/fastdfs
 
-RUN useradd -m -s /bin/bash www
+RUN useradd -m -s /bin/bash ihService
 
 ## comile nginx
 # nginx url: https://freenginx.org/download/freenginx-${NGINX_VERSION}.tar.gz
@@ -60,7 +60,7 @@ RUN git clone -b $FASTDFS_NGINX_MODULE_VERSION https://github.com/happyfish100/f
   && tar -zxf tengine-${TENGINE_VERSION}.tar.gz \
   && cd tengine-${TENGINE_VERSION} \
   && ./configure --prefix=/usr/local/nginx \
-      --user=www \
+      --user=ihService \
       --add-module=${FASTDFS_PATH}/fastdfs-nginx-module/src/ \
       --add-module=./modules/ngx_http_upstream_dynamic_module \
       --add-module=./modules/ngx_http_upstream_check_module \
